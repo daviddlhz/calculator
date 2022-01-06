@@ -1,9 +1,11 @@
 interface IManipulationInput {
-  getInputValueNumber(inputId: string): number;
 
-  setInputValue(inputId: string, inputValue: number): void;
+  getValue(inputId: string): number;
 
-  getInputsElement(inputType: string): NodeListOf<HTMLInputElement>;
+  setValue(inputId: string, inputValue: number): void;
 
-  activeClickEventList(inputsElements: NodeListOf<HTMLInputElement>, functionEvent: Function): void;
+  getElements(inputType: string): HTMLInputElement[];
+
+  activeClickEventList(inputsElements: HTMLInputElement[], functionEvent: Function): void;
+
 }

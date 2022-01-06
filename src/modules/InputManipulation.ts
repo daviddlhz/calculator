@@ -1,33 +1,35 @@
 export class InputManipulation implements IManipulationInput {
+  
 
-  getInputValueNumber(inputId: string): number {
-    const value = Number(
-      (<HTMLInputElement>document.getElementById(inputId)).value
-    );
-    return value;
+  getValue(inputId: string): number {
+
+    return Number((document.getElementById(inputId) as HTMLInputElement).value);
+    
   }
 
-  setInputValue(inputId: string, inputValue: number) {
-    const inputElement: HTMLInputElement = <HTMLInputElement>(
-      document.getElementById(inputId)
-    );
+  setValue(inputId: string, inputValue: number) {
 
-    inputElement.value = inputValue.toString();
+    (<HTMLInputElement>document.getElementById(inputId)).value = inputValue.toString();
+  
   }
 
-  getInputsElement(inputType: string): NodeListOf<HTMLInputElement> {
-    return document.querySelectorAll(inputType);
+  getElements(inputType: string): HTMLInputElement[] {
+
+    return Array.from(document.querySelectorAll(inputType));
+  
   }
 
-  activeClickEventList(
-    inputsElement: NodeListOf<HTMLInputElement>,
-    functionEvent: Function
-  ): void {
+  activeClickEventList( inputsElement: HTMLInputElement[], functionEvent: Function): void  {
+
     inputsElement.forEach((input) => {
+      
       input?.addEventListener("click", (ev: Event) => {
+        
         functionEvent(input.value, ev);
-      });
+      
+      })
     });
+    
   }
 
 }
