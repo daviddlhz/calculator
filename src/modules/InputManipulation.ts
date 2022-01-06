@@ -1,5 +1,5 @@
 export class InputManipulation implements IManipulationInput {
-  
+
 
   getValue(inputId: string): number {
 
@@ -25,9 +25,10 @@ export class InputManipulation implements IManipulationInput {
       
       input?.addEventListener("click", (ev: Event) => {
         
-        functionEvent(input.value, ev);
+        functionEvent(input.value, ev)
       
       })
+
     });
     
   }
